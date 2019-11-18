@@ -3,7 +3,6 @@ package com.example.firebase;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -38,25 +37,15 @@ class User {
 
 public class signUpActivity extends AppCompatActivity{
     private FirebaseAuth mAuth;
+    private RadioGroup upper_group;
+    private  RadioGroup down_group;
+    private  RadioGroup color_group;
     private FirebaseDatabase  fdb=FirebaseDatabase.getInstance();
     private DatabaseReference daRef=fdb.getReference();
 
-//    RadioGroup upRg=(RadioGroup) findViewById(R.id.rg1);//상체라디오그룹
-//    RadioGroup downRg=(RadioGroup) findViewById(R.id.rg2);//하체라디오그룹
 
 
-//    RadioButton uprb1= upRg.findViewById(upRg.getCheckedRadioButtonId());
-//    RadioButton uprb2= findViewById(R.id.rb2);
-//    RadioButton uprb3= findViewById(R.id.rb3);
-//    RadioButton downrb1= findViewById(R.id.rb4);
-//    RadioButton downrb2= findViewById(R.id.rb5);
-//    RadioButton downrb3= findViewById(R.id.rb6);
-//
-
-
-
-
-
+    private RadioButton u_rb1, u_rb2, u_rb3, d_rb1, d_rb2, d_rb3, c_rb1, c_rb2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +53,19 @@ public class signUpActivity extends AppCompatActivity{
         setContentView(R.layout.activity_signup);
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+
+        upper_group = findViewById(R.id.rg1);
+        down_group = findViewById(R.id.rg2);
+        color_group = findViewById(R.id.rg3);
+
+        u_rb1 = findViewById(R.id.rb1);
+        u_rb2 = findViewById(R.id.rb2);
+        u_rb3 = findViewById(R.id.rb3);
+        d_rb1 = findViewById(R.id.rb4);
+        d_rb2 = findViewById(R.id.rb5);
+        d_rb3 = findViewById(R.id.rb6);
+        c_rb1 = findViewById(R.id.rb7);
+        c_rb2 = findViewById(R.id.rb8);
 
         findViewById(R.id.signupButton).setOnClickListener(onClickListener);
     }
@@ -77,6 +79,7 @@ public class signUpActivity extends AppCompatActivity{
                 case R.id.signupButton:
                     writeNewUser("1234","NEW","newnewenw@naver.com");
                     signUp();
+                    setOption();
                     break;
             }
         }
@@ -104,8 +107,6 @@ public class signUpActivity extends AppCompatActivity{
                                         startToast("기존에 가입된 email입니다.");
                                     // 실패 UI
                                 }
-
-                                // ...
                             }
                         });
             }
@@ -132,6 +133,12 @@ public class signUpActivity extends AppCompatActivity{
     private void writeNewUser(String userId, String name, String email) {
         User user = new User(name, email);
 
+    private void setOption(){
+        int upper = 0;
+        int down = 0;
+        int color = 0;
+
+    }
         daRef.child("users").child(userId).setValue(user);
     }
 
