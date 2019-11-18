@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,6 +20,22 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class signUpActivity extends AppCompatActivity{
     private FirebaseAuth mAuth;
+    RadioGroup upRg=(RadioGroup) findViewById(R.id.rg1);//상체라디오그룹
+    RadioGroup downRg=(RadioGroup) findViewById(R.id.rg2);//하체라디오그룹
+
+
+    RadioButton uprb1=(RadioButton) findViewById(R.id.rb1);
+    RadioButton uprb2=(RadioButton) findViewById(R.id.rb2);
+    RadioButton uprb3=(RadioButton) findViewById(R.id.rb3);
+    RadioButton downrb1=(RadioButton) findViewById(R.id.rb4);
+    RadioButton downrb2=(RadioButton) findViewById(R.id.rb5);
+    RadioButton downrb3=(RadioButton) findViewById(R.id.rb6);
+
+
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +72,7 @@ public class signUpActivity extends AppCompatActivity{
                                 if (task.isSuccessful()) {
                                     startToast("회원가입을 성공했습니다.");
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    addOption();
+
                                     startLoginActivity();
                                     // 성공 UI
                                 } else {
@@ -88,12 +106,5 @@ public class signUpActivity extends AppCompatActivity{
         startActivity(intent);
     }
 
-    private void addOption(){
-        final CheckBox upplumpCheck = (CheckBox)findViewById(R.id.UpPlumpCheck);
-        final CheckBox upthinCheck = (CheckBox)findViewById(R.id.UpThinCheck);
-        final CheckBox downplumpCheck = (CheckBox)findViewById(R.id.DownPlumpCheck);
-        final CheckBox downthinCheck = (CheckBox)findViewById(R.id.DownThinCheck);
 
-
-    }
 }
