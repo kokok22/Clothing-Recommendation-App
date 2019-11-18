@@ -132,14 +132,15 @@ public class signUpActivity extends AppCompatActivity{
     }
     private void writeNewUser(String userId, String name, String email) {
         User user = new User(name, email);
-
+        daRef.child("users").child(userId).setValue(user);
+    }
     private void setOption(){
         int upper = 0;
         int down = 0;
         int color = 0;
 
     }
-        daRef.child("users").child(userId).setValue(user);
-    }
 
 }
+
+
