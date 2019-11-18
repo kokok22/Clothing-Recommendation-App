@@ -17,20 +17,41 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+class User {
+
+    public String username;
+    public String email;
+
+    public User() {
+
+    }
+
+    public User(String username, String email) {
+        this.username = username;
+        this.email = email;
+    }
+
+}
 
 public class signUpActivity extends AppCompatActivity{
     private FirebaseAuth mAuth;
+    private FirebaseDatabase  fdb=FirebaseDatabase.getInstance();
+    private DatabaseReference daRef=fdb.getReference();
+
 //    RadioGroup upRg=(RadioGroup) findViewById(R.id.rg1);//상체라디오그룹
 //    RadioGroup downRg=(RadioGroup) findViewById(R.id.rg2);//하체라디오그룹
-//
-//
-//    RadioButton uprb1=(RadioButton) findViewById(R.id.rb1);
-//    RadioButton uprb2=(RadioButton) findViewById(R.id.rb2);
-//    RadioButton uprb3=(RadioButton) findViewById(R.id.rb3);
-//    RadioButton downrb1=(RadioButton) findViewById(R.id.rb4);
-//    RadioButton downrb2=(RadioButton) findViewById(R.id.rb5);
-//    RadioButton downrb3=(RadioButton) findViewById(R.id.rb6);
 
+
+//    RadioButton uprb1= upRg.findViewById(upRg.getCheckedRadioButtonId());
+//    RadioButton uprb2= findViewById(R.id.rb2);
+//    RadioButton uprb3= findViewById(R.id.rb3);
+//    RadioButton downrb1= findViewById(R.id.rb4);
+//    RadioButton downrb2= findViewById(R.id.rb5);
+//    RadioButton downrb3= findViewById(R.id.rb6);
+//
 
 
 
@@ -50,8 +71,11 @@ public class signUpActivity extends AppCompatActivity{
     View.OnClickListener onClickListener = new View.OnClickListener(){
         @Override
         public void onClick(View v){
+
             switch(v.getId()){
+
                 case R.id.signupButton:
+                    writeNewUser("1234","NEW","newnewenw@naver.com");
                     signUp();
                     break;
             }
@@ -105,6 +129,10 @@ public class signUpActivity extends AppCompatActivity{
         Intent intent=new Intent(this,LoginActivity.class);
         startActivity(intent);
     }
+    private void writeNewUser(String userId, String name, String email) {
+        User user = new User(name, email);
 
+        daRef.child("users").child(userId).setValue(user);
+    }
 
 }
