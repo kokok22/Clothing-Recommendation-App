@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // test1
+        // test1121
 
         // 현재 로그인 되어있는지 확인 로그인 되어있지 않으면 로그인 화면으로 넘어가도록
         if(FirebaseAuth.getInstance().getCurrentUser() == null){
