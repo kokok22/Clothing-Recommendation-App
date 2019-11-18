@@ -23,6 +23,8 @@ public class signUpActivity extends AppCompatActivity{
     private  RadioGroup down_group;
     private  RadioGroup color_group;
 
+    private RadioButton u_rb1, u_rb2, u_rb3, d_rb1, d_rb2, d_rb3, c_rb1, c_rb2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,15 @@ public class signUpActivity extends AppCompatActivity{
         down_group = findViewById(R.id.rg2);
         color_group = findViewById(R.id.rg3);
 
+        u_rb1 = findViewById(R.id.rb1);
+        u_rb2 = findViewById(R.id.rb2);
+        u_rb3 = findViewById(R.id.rb3);
+        d_rb1 = findViewById(R.id.rb4);
+        d_rb2 = findViewById(R.id.rb5);
+        d_rb3 = findViewById(R.id.rb6);
+        c_rb1 = findViewById(R.id.rb7);
+        c_rb2 = findViewById(R.id.rb8);
+
         findViewById(R.id.signupButton).setOnClickListener(onClickListener);
     }
 
@@ -43,6 +54,7 @@ public class signUpActivity extends AppCompatActivity{
             switch(v.getId()){
                 case R.id.signupButton:
                     signUp();
+                    setOption();
                     break;
             }
         }
@@ -94,5 +106,11 @@ public class signUpActivity extends AppCompatActivity{
         startActivity(intent);
     }
 
+    private void setOption(){
+        int upper = 0;
+        int down = 0;
+        int color = 0;
+
+    }
 
 }
