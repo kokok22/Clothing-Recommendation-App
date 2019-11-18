@@ -20,16 +20,16 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class signUpActivity extends AppCompatActivity{
     private FirebaseAuth mAuth;
-    RadioGroup upRg=(RadioGroup) findViewById(R.id.rg1);//상체라디오그룹
-    RadioGroup downRg=(RadioGroup) findViewById(R.id.rg2);//하체라디오그룹
-
-
-    RadioButton uprb1=(RadioButton) findViewById(R.id.rb1);
-    RadioButton uprb2=(RadioButton) findViewById(R.id.rb2);
-    RadioButton uprb3=(RadioButton) findViewById(R.id.rb3);
-    RadioButton downrb1=(RadioButton) findViewById(R.id.rb4);
-    RadioButton downrb2=(RadioButton) findViewById(R.id.rb5);
-    RadioButton downrb3=(RadioButton) findViewById(R.id.rb6);
+//    RadioGroup upRg=(RadioGroup) findViewById(R.id.rg1);//상체라디오그룹
+//    RadioGroup downRg=(RadioGroup) findViewById(R.id.rg2);//하체라디오그룹
+//
+//
+//    RadioButton uprb1=(RadioButton) findViewById(R.id.rb1);
+//    RadioButton uprb2=(RadioButton) findViewById(R.id.rb2);
+//    RadioButton uprb3=(RadioButton) findViewById(R.id.rb3);
+//    RadioButton downrb1=(RadioButton) findViewById(R.id.rb4);
+//    RadioButton downrb2=(RadioButton) findViewById(R.id.rb5);
+//    RadioButton downrb3=(RadioButton) findViewById(R.id.rb6);
 
 
 
