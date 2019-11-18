@@ -3,7 +3,6 @@ package com.example.firebase;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -20,22 +19,9 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class signUpActivity extends AppCompatActivity{
     private FirebaseAuth mAuth;
-//    RadioGroup upRg=(RadioGroup) findViewById(R.id.rg1);//상체라디오그룹
-//    RadioGroup downRg=(RadioGroup) findViewById(R.id.rg2);//하체라디오그룹
-//
-//
-//    RadioButton uprb1=(RadioButton) findViewById(R.id.rb1);
-//    RadioButton uprb2=(RadioButton) findViewById(R.id.rb2);
-//    RadioButton uprb3=(RadioButton) findViewById(R.id.rb3);
-//    RadioButton downrb1=(RadioButton) findViewById(R.id.rb4);
-//    RadioButton downrb2=(RadioButton) findViewById(R.id.rb5);
-//    RadioButton downrb3=(RadioButton) findViewById(R.id.rb6);
-
-
-
-
-
-
+    private RadioGroup upper_group;
+    private  RadioGroup down_group;
+    private  RadioGroup color_group;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +29,10 @@ public class signUpActivity extends AppCompatActivity{
         setContentView(R.layout.activity_signup);
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+
+        upper_group = findViewById(R.id.rg1);
+        down_group = findViewById(R.id.rg2);
+        color_group = findViewById(R.id.rg3);
 
         findViewById(R.id.signupButton).setOnClickListener(onClickListener);
     }
@@ -80,8 +70,6 @@ public class signUpActivity extends AppCompatActivity{
                                         startToast("기존에 가입된 email입니다.");
                                     // 실패 UI
                                 }
-
-                                // ...
                             }
                         });
             }
