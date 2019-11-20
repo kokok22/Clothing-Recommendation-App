@@ -1,14 +1,14 @@
 package com.example.firebase;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.Logoutbutton).setOnClickListener(onClickListener);
         findViewById(R.id.Optionbutton).setOnClickListener(onClickListener);
         findViewById(R.id.Resetbutton).setOnClickListener(onClickListener);
-
 
     }
 
@@ -82,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception exception) {
                 // 다운로드 실패
-                startToast("fail...uu");
+                startToast("fail...");
             }
         });
 
@@ -97,5 +96,6 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
 
     }
+
 
 }
