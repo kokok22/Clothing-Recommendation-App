@@ -76,20 +76,23 @@
 
                 <RadioButton
                     android:id="@+id/rb1"
-                    android:layout_width="129dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="상체통통" />
 
                 <RadioButton
                     android:id="@+id/rb2"
-                    android:layout_width="138dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="상체보통" />
 
                 <RadioButton
                     android:id="@+id/rb3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="상체마름" />
             </RadioGroup>
 
@@ -108,21 +111,25 @@
 
                 <RadioButton
                     android:id="@+id/rb4"
-                    android:layout_width="129dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="하체통통" />
 
                 <RadioButton
                     android:id="@+id/rb5"
-                    android:layout_width="139dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="하체보통" />
 
                 <RadioButton
                     android:id="@+id/rb6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="하체마름" />
+
             </RadioGroup>
         </LinearLayout>
 
@@ -152,15 +159,23 @@
 
                 <RadioButton
                     android:id="@+id/rb7"
-                    android:layout_width="129dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="쿨톤" />
 
                 <RadioButton
                     android:id="@+id/rb8"
-                    android:layout_width="139dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="웜톤" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
 
             </RadioGroup>
         </LinearLayout>

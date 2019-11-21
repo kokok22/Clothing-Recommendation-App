@@ -7,12 +7,12 @@
     <application
         android:name=".WeatherApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:icon="@drawable/ddak_logo"
+        android:label="딱스타일"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OpenWeatherActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +23,6 @@
         <activity android:name=".LoginActivity"></activity>
         <activity android:name=".PasswordResetActivity"></activity>
         <activity android:name=".OptionActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
