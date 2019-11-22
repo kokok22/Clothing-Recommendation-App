@@ -40,8 +40,8 @@ public class signUpActivity extends AppCompatActivity{
     private RadioGroup upper_group;
     private RadioGroup down_group;
     private RadioGroup color_group;
-    private FirebaseDatabase  fdb=FirebaseDatabase.getInstance();
-    private DatabaseReference daRef=fdb.getReference();
+    private FirebaseDatabase  fdb = FirebaseDatabase.getInstance();
+    private DatabaseReference daRef = fdb.getReference();
 
     private RadioButton u_rb1, u_rb2, u_rb3, d_rb1, d_rb2, d_rb3, c_rb1, c_rb2;
 
