@@ -129,6 +129,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="?attr/actionBarItemBackground"
                 android:text="Reset" />
 
             <Button
@@ -136,6 +137,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="?attr/actionBarItemBackground"
                 android:text="Option" />
 
         </LinearLayout>
@@ -144,8 +146,8 @@
             android:id="@+id/Logoutbutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
             android:text="Logout"
+            android:background="?attr/actionBarItemBackground"
             android:textColor="@android:color/holo_red_dark" />
 
     </LinearLayout>
