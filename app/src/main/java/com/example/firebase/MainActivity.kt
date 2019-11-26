@@ -25,7 +25,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
-
+//테스트
 class MainActivity : AppCompatActivity(), LocationListener{
 
     val PERMISSION_REQUEST_CODE = 2000
