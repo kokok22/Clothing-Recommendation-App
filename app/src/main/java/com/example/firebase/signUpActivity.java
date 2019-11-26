@@ -9,7 +9,6 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -35,7 +34,7 @@ class User {
 
 }
 
-public class signUpActivity extends AppCompatActivity{
+public class signUpActivity extends BaseActivity{
     private FirebaseAuth mAuth;
     private RadioGroup upper_group;
     private RadioGroup down_group;

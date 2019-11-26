@@ -6,9 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -21,6 +19,6 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
             }
         };
-        handler.sendEmptyMessageDelayed(0, 3000);
+        handler.sendEmptyMessageDelayed(0, 4000);
     }
 }

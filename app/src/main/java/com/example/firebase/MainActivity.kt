@@ -13,7 +13,6 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
@@ -25,8 +24,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
+
 //테스트
-class MainActivity : AppCompatActivity(), LocationListener{
+class MainActivity : BaseActivity(), LocationListener{
 
     val PERMISSION_REQUEST_CODE = 2000
     val APP_ID = "01f01504beb8a874eb66df4f8859f80e"

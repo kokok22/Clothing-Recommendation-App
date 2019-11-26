@@ -8,7 +8,7 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="150dp"
         android:gravity="center"
         android:text="회원가입"
         android:textColor="#17011A"
