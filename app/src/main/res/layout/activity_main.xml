@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -69,7 +70,7 @@
 
         <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="220dp">
+            android:layout_height="292dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -78,40 +79,40 @@
 
                 <ImageButton
                     android:id="@+id/firstImage"
-                    android:layout_width="200dp"
-                    android:layout_height="190dp"
+                    android:layout_width="250dp"
+                    android:layout_height="240dp"
                     android:layout_weight="1"
                     android:background="@drawable/xml_border"
                     android:scaleType="centerInside" />
 
                 <ImageButton
                     android:id="@+id/secondImage"
-                    android:layout_width="200dp"
-                    android:layout_height="190dp"
+                    android:layout_width="250dp"
+                    android:layout_height="240dp"
                     android:layout_weight="1"
                     android:background="@drawable/xml_border"
                     android:scaleType="centerInside" />
 
                 <ImageButton
                     android:id="@+id/thirdImage"
-                    android:layout_width="200dp"
-                    android:layout_height="190dp"
+                    android:layout_width="250dp"
+                    android:layout_height="240dp"
                     android:layout_weight="1"
                     android:background="@drawable/xml_border"
                     android:scaleType="centerInside" />
 
                 <ImageButton
                     android:id="@+id/fourthImage"
-                    android:layout_width="200dp"
-                    android:layout_height="190dp"
+                    android:layout_width="250dp"
+                    android:layout_height="240dp"
                     android:layout_weight="1"
                     android:background="@drawable/xml_border"
                     android:scaleType="centerInside" />
 
                 <ImageButton
                     android:id="@+id/fifthImage"
-                    android:layout_width="200dp"
-                    android:layout_height="190dp"
+                    android:layout_width="250dp"
+                    android:layout_height="240dp"
                     android:layout_weight="1"
                     android:background="@drawable/xml_border"
                     android:scaleType="centerInside" />
