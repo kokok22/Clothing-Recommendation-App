@@ -27,15 +27,10 @@ public class LoginActivity extends BaseActivity {
         findViewById(R.id.Loginbutton).setOnClickListener(onClickListener);
         findViewById(R.id.gotoSignUpbutton).setOnClickListener(onClickListener);
         findViewById(R.id.gotoPasswordbutton).setOnClickListener(onClickListener);
+
+
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        moveTaskToBack(true);
-        android.os.Process.killProcess(android.os.Process.myPid());
-        System.exit(1);
-    }
 
     View.OnClickListener onClickListener = new View.OnClickListener(){
         @Override
@@ -91,6 +86,9 @@ public class LoginActivity extends BaseActivity {
     private void startmyActivity(Class c){
         Intent intent=new Intent(this,c);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        if(c.equals(MainActivity.class)){
+            finish();
+        }
         startActivity(intent);
     }
 }
