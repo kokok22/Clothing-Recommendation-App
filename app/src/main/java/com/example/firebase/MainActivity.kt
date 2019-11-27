@@ -1,9 +1,11 @@
 package com.example.firebase
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.location.Location
 import android.location.LocationListener
@@ -23,7 +25,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.IOException
 import java.util.*
+import kotlin.math.roundToInt
 
 //테스트
 class MainActivity : BaseActivity(), LocationListener{
@@ -130,19 +134,33 @@ class MainActivity : BaseActivity(), LocationListener{
 
     }
 
+    @SuppressLint("SetTextI18n")
     fun drawCurrentWeather(currentWeather: TotalWeather?){
         with(currentWeather){
 
 
             this?.weatherList?.getOrNull(0)?.let{
-                val glide = Glide.with(this@MainActivity)
+              /*  val glide = Glide.with(this@MainActivity)
                 glide.load(Uri.parse("https://openweathermap.org/img/wn/"+it.icon +"@2x.png"))
-                        .into(weather_now)
+                        .into(weather_now)*/
+                val Wname:String = it.icon + ".png"
+                val assetsBitmap:Bitmap? = getBitmapFromAssets(Wname)
+                weather_now.setImageBitmap(assetsBitmap)
             }
 
-            this?.main?.temp?.let{now_temp.text = it.toString()+"°C"}
-            this?.main?.tempMax?.let{temp = it.toString()}
-            this?.main?.tempMin?.let{tempss.text = temp+"/"+it.toString()}
+
+            this?.main?.temp?.let{now_temp.text = it.roundToInt().toString()+"°"}
+            this?.main?.tempMax?.let{temp = it.roundToInt().toString()}
+            this?.main?.tempMin?.let{tempss.text = temp+" / "+it.roundToInt().toString()+"    "}
+        }
+    }
+
+    private fun getBitmapFromAssets(fileName: String):Bitmap?{
+        return try{
+            BitmapFactory.decodeStream(assets.open(fileName))
+        }catch (e: IOException){
+            e.printStackTrace()
+            null
         }
     }
 
