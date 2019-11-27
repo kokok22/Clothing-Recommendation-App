@@ -7,9 +7,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.location.Location
-import android.location.LocationListener
-import android.location.LocationManager
+import android.location.*
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -28,6 +26,7 @@ import retrofit2.Response
 import java.io.IOException
 import java.util.*
 import kotlin.math.roundToInt
+import android.util.Log
 
 //테스트
 class MainActivity : BaseActivity(), LocationListener{
@@ -73,11 +72,11 @@ class MainActivity : BaseActivity(), LocationListener{
 
         val RefList = ArrayList<StorageReference>()
 
-        RefList.add(storageRef.child("10000.bmp"))
-        RefList.add(storageRef.child("10001.bmp"))
-        RefList.add(storageRef.child("10007.bmp"))
-        RefList.add(storageRef.child("10006.bmp"))
-        RefList.add(storageRef.child("KakaoTalk_20191107_110103496.jpg"))
+        RefList.add(storageRef.child("225.bmp"))
+        RefList.add(storageRef.child("227.bmp"))
+        RefList.add(storageRef.child("250.bmp"))
+        RefList.add(storageRef.child("229.bmp"))
+        RefList.add(storageRef.child("230.bmp"))
 
         val ONE_MEGABYTE = (1024 * 1024).toLong()
 
@@ -195,7 +194,26 @@ class MainActivity : BaseActivity(), LocationListener{
         }
     }
 
+    fun setLocation(latitude: Double, longitude: Double){
+        val geocoder = Geocoder(this)
+            var list: List<Address>? = null
+
+            try {
+                list = geocoder.getFromLocation(
+                        latitude,
+                        longitude,
+                        10
+                )
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+
+            LocText.text = list!!.get(0).locality
+            Log.v("location",list!!.get(0).locality)
+        }
+
     fun requestWeatherInfoLocation(latitude: Double, longitude: Double){
+        setLocation(latitude, longitude)
         (application as WeatherApplication)
                 .requestService()
                 ?.getWeatherInfoOfCoordinates(
