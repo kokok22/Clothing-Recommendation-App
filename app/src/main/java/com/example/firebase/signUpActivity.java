@@ -22,14 +22,18 @@ class User {
 
     public String username;
     public String email;
+    public int UpBody;
+    public int downBody;
+
 
     public User() {
 
     }
 
-    public User(String username, String email) {
-        this.username = username;
+    public User(String username, int upBody,int downBody) {
         this.email = email;
+        this.UpBody = upBody;
+        this.downBody = downBody;
     }
 
 }
@@ -42,7 +46,9 @@ public class signUpActivity extends BaseActivity{
     private FirebaseDatabase  fdb = FirebaseDatabase.getInstance();
     private DatabaseReference daRef = fdb.getReference();
     private DatabaseReference mDatabase;
-
+    //private String email;
+   // private String password;
+    private int UpNum=10,DownNum=10;
     private RadioButton u_rb1, u_rb2, u_rb3, d_rb1, d_rb2, d_rb3, c_rb1, c_rb2;
 
     @Override
@@ -50,6 +56,7 @@ public class signUpActivity extends BaseActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         // Initialize Firebase Auth
+
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -67,8 +74,34 @@ public class signUpActivity extends BaseActivity{
         c_rb2 = findViewById(R.id.rb8);
 
         findViewById(R.id.signupButton).setOnClickListener(onClickListener);
-    }
+//        upper_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(RadioGroup group, int checkedId) {
+//                if(u_rb1.isChecked()){
+//                    UpNum=1;
+//                }else if(u_rb2.isChecked()){
+//                    UpNum=2;
+//                }else if(u_rb2.isChecked()){
+//                    UpNum=3;
+//                }
+//            }
+//        });
+//
+//        down_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(RadioGroup group, int checkedId) {
+//                if(d_rb1.isChecked()){
+//                    DownNum=1;
+//                }else if(d_rb2.isChecked()){
+//                    DownNum=2;
+//                }else if(d_rb3.isChecked()){
+//                    DownNum=3;
+//                }
+//            }
+//        });
+//    }
 
+    }
     View.OnClickListener onClickListener = new View.OnClickListener(){
         @Override
         public void onClick(View v){
@@ -76,13 +109,15 @@ public class signUpActivity extends BaseActivity{
             switch(v.getId()){
 
                 case R.id.signupButton:
-                    writeNewUser("1234","NEW","newnewenw@naver.com");
+                    writeNewUser("AA",UpNum,DownNum);
                     signUp();
+
                     setOption();
                     break;
             }
         }
     };
+
 
     private void signUp(){
         final String email = ((EditText)findViewById(R.id.EmaileditText)).getText().toString();
@@ -98,7 +133,7 @@ public class signUpActivity extends BaseActivity{
                                 if (task.isSuccessful()) {
                                     startToast("회원가입을 성공했습니다.");
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    writeNewUser("test", "IDs", "pswd");
+                                    writeNewUser(email,UpNum,DownNum);
 
                                     startLoginActivity();
                                     // 성공 UI
@@ -129,9 +164,9 @@ public class signUpActivity extends BaseActivity{
         Intent intent=new Intent(this,LoginActivity.class);
         startActivity(intent);
     }
-    private void writeNewUser(String userId, String name, String email) {
-        User user = new User(name, email);
-        daRef.child(userId).setValue(user);
+    private void writeNewUser(String email, int up, int down) {
+        User user = new User(email,up,down);
+        daRef.child(email).setValue(user);
     }
     private void setOption(){
 
