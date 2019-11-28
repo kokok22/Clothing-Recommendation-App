@@ -147,7 +147,7 @@ public class signUpActivity extends BaseActivity{
                                 if (task.isSuccessful()) {
                                     startToast("회원가입을 성공했습니다.");
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    writeNewUser(email,UpNum,DownNum,skinColor);
+                                    writeNewUser(email.substring(0,email.length()-4),UpNum,DownNum,skinColor);
 
                                     startLoginActivity();
                                     // 성공 UI
