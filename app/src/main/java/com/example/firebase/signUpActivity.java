@@ -24,16 +24,18 @@ class User {
     public String email;
     public int UpBody;
     public int downBody;
+    public int skinColor;
 
 
     public User() {
 
     }
 
-    public User(String username, int upBody,int downBody) {
+    public User(String username, int upBody,int downBody,int skinColor) {
         this.email = email;
         this.UpBody = upBody;
         this.downBody = downBody;
+        this.skinColor=skinColor;
     }
 
 }
@@ -48,7 +50,7 @@ public class signUpActivity extends BaseActivity{
     private DatabaseReference mDatabase;
     //private String email;
    // private String password;
-    private int UpNum=10,DownNum=10;
+    private int UpNum=10,DownNum=10,skinColor;
     private RadioButton u_rb1, u_rb2, u_rb3, d_rb1, d_rb2, d_rb3, c_rb1, c_rb2;
 
     @Override
@@ -74,34 +76,46 @@ public class signUpActivity extends BaseActivity{
         c_rb2 = findViewById(R.id.rb8);
 
         findViewById(R.id.signupButton).setOnClickListener(onClickListener);
-//        upper_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(RadioGroup group, int checkedId) {
-//                if(u_rb1.isChecked()){
-//                    UpNum=1;
-//                }else if(u_rb2.isChecked()){
-//                    UpNum=2;
-//                }else if(u_rb2.isChecked()){
-//                    UpNum=3;
-//                }
-//            }
-//        });
-//
-//        down_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(RadioGroup group, int checkedId) {
-//                if(d_rb1.isChecked()){
-//                    DownNum=1;
-//                }else if(d_rb2.isChecked()){
-//                    DownNum=2;
-//                }else if(d_rb3.isChecked()){
-//                    DownNum=3;
-//                }
-//            }
-//        });
-//    }
+        upper_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(u_rb1.isChecked()){
+                    UpNum=1;
+                }else if(u_rb2.isChecked()){
+                    UpNum=2;
+                }else if(u_rb2.isChecked()){
+                    UpNum=3;
+                }
+            }
+        });
 
+        color_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (c_rb1.isChecked()) {
+                    UpNum = 1;
+                } else if (c_rb2.isChecked()) {
+                    UpNum = 2;
+                }
+            }
+        });
+
+
+        down_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(d_rb1.isChecked()){
+                    DownNum=1;
+                }else if(d_rb2.isChecked()){
+                    DownNum=2;
+                }else if(d_rb3.isChecked()){
+                    DownNum=3;
+                }
+            }
+        });
     }
+
+
     View.OnClickListener onClickListener = new View.OnClickListener(){
         @Override
         public void onClick(View v){
@@ -109,7 +123,7 @@ public class signUpActivity extends BaseActivity{
             switch(v.getId()){
 
                 case R.id.signupButton:
-                    writeNewUser("AA",UpNum,DownNum);
+                    writeNewUser("AABB",UpNum,DownNum,skinColor);
                     signUp();
 
                     setOption();
@@ -133,7 +147,7 @@ public class signUpActivity extends BaseActivity{
                                 if (task.isSuccessful()) {
                                     startToast("회원가입을 성공했습니다.");
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    writeNewUser(email,UpNum,DownNum);
+                                    writeNewUser(email,UpNum,DownNum,skinColor);
 
                                     startLoginActivity();
                                     // 성공 UI
@@ -164,8 +178,8 @@ public class signUpActivity extends BaseActivity{
         Intent intent=new Intent(this,LoginActivity.class);
         startActivity(intent);
     }
-    private void writeNewUser(String email, int up, int down) {
-        User user = new User(email,up,down);
+    private void writeNewUser(String email, int up, int down,int skinColor) {
+        User user = new User(email,up,down,skinColor);
         daRef.child(email).setValue(user);
     }
     private void setOption(){
