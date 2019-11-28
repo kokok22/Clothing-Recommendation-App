@@ -13,6 +13,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends BaseActivity {
     private FirebaseAuth mAuth;
@@ -27,7 +29,6 @@ public class LoginActivity extends BaseActivity {
         findViewById(R.id.Loginbutton).setOnClickListener(onClickListener);
         findViewById(R.id.gotoSignUpbutton).setOnClickListener(onClickListener);
         findViewById(R.id.gotoPasswordbutton).setOnClickListener(onClickListener);
-
 
     }
 

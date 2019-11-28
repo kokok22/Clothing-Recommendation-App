@@ -127,7 +127,9 @@ class MainActivity : BaseActivity(), LocationListener{
             // 이미지 다운로드 성공
             fifthImage.setImageBitmap(BitmapFactory.decodeByteArray(bytes, 0, bytes.size))
             like5.text = "  "+random.nextInt(3000).toString()
-            startToast("추천 스타일 입니다.")
+            if(num==0) {
+                startToast("추천 스타일 입니다.")
+            }
         }.addOnFailureListener {
             // 다운로드 실패
             startToast("fail...")

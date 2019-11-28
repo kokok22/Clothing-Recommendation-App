@@ -41,6 +41,7 @@ public class signUpActivity extends BaseActivity{
     private RadioGroup color_group;
     private FirebaseDatabase  fdb = FirebaseDatabase.getInstance();
     private DatabaseReference daRef = fdb.getReference();
+    private DatabaseReference mDatabase;
 
     private RadioButton u_rb1, u_rb2, u_rb3, d_rb1, d_rb2, d_rb3, c_rb1, c_rb2;
 
@@ -50,6 +51,7 @@ public class signUpActivity extends BaseActivity{
         setContentView(R.layout.activity_signup);
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         upper_group = findViewById(R.id.rg1);
         down_group = findViewById(R.id.rg2);
@@ -83,8 +85,8 @@ public class signUpActivity extends BaseActivity{
     };
 
     private void signUp(){
-        String email = ((EditText)findViewById(R.id.EmaileditText)).getText().toString();
-        String password = ((EditText)findViewById(R.id.passwordeditText)).getText().toString();
+        final String email = ((EditText)findViewById(R.id.EmaileditText)).getText().toString();
+        final String password = ((EditText)findViewById(R.id.passwordeditText)).getText().toString();
         String passwordCheck = ((EditText)findViewById(R.id.passwordcheckeditText)).getText().toString();
 
         if(email.length() > 0 && password.length() > 0 && passwordCheck.length() >0){
@@ -96,6 +98,7 @@ public class signUpActivity extends BaseActivity{
                                 if (task.isSuccessful()) {
                                     startToast("회원가입을 성공했습니다.");
                                     FirebaseUser user = mAuth.getCurrentUser();
+                                    writeNewUser("test", "IDs", "pswd");
 
                                     startLoginActivity();
                                     // 성공 UI
@@ -128,12 +131,9 @@ public class signUpActivity extends BaseActivity{
     }
     private void writeNewUser(String userId, String name, String email) {
         User user = new User(name, email);
-        daRef.child("users").child(userId).setValue(user);
+        daRef.child(userId).setValue(user);
     }
     private void setOption(){
-        int upper = 0;
-        int down = 0;
-        int color = 0;
 
     }
 
