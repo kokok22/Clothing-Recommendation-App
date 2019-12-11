@@ -35,22 +35,23 @@ class User {
         this.email = email;
         this.UpBody = upBody;
         this.downBody = downBody;
-        this.skinColor=skinColor;
+        this.skinColor= skinColor;
     }
 
 }
 
 public class signUpActivity extends BaseActivity{
+    public String OptionEmail;
     private FirebaseAuth mAuth;
     private RadioGroup upper_group;
     private RadioGroup down_group;
     private RadioGroup color_group;
-    private FirebaseDatabase  fdb = FirebaseDatabase.getInstance();
-    private DatabaseReference daRef = fdb.getReference();
-    private DatabaseReference mDatabase;
+    public FirebaseDatabase  fdb = FirebaseDatabase.getInstance();
+    public DatabaseReference daRef = fdb.getReference();
+    public DatabaseReference mDatabase;
     //private String email;
    // private String password;
-    private int UpNum=10,DownNum=10,skinColor;
+    int UpNum=10,DownNum=10, skinColor=10;
     private RadioButton u_rb1, u_rb2, u_rb3, d_rb1, d_rb2, d_rb3, c_rb1, c_rb2;
 
     @Override
@@ -93,9 +94,9 @@ public class signUpActivity extends BaseActivity{
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (c_rb1.isChecked()) {
-                    UpNum = 1;
+                    skinColor = 1;
                 } else if (c_rb2.isChecked()) {
-                    UpNum = 2;
+                    skinColor = 2;
                 }
             }
         });
@@ -133,7 +134,7 @@ public class signUpActivity extends BaseActivity{
     };
 
 
-    private void signUp(){
+    public void signUp(){
         final String email = ((EditText)findViewById(R.id.EmaileditText)).getText().toString();
         final String password = ((EditText)findViewById(R.id.passwordeditText)).getText().toString();
         String passwordCheck = ((EditText)findViewById(R.id.passwordcheckeditText)).getText().toString();
@@ -147,6 +148,7 @@ public class signUpActivity extends BaseActivity{
                                 if (task.isSuccessful()) {
                                     startToast("회원가입을 성공했습니다.");
                                     FirebaseUser user = mAuth.getCurrentUser();
+                                    OptionEmail=email.substring(0,email.length()-4);
                                     writeNewUser(email.substring(0,email.length()-4),UpNum,DownNum,skinColor);
 
                                     startLoginActivity();
@@ -182,6 +184,7 @@ public class signUpActivity extends BaseActivity{
         User user = new User(email,up,down,skinColor);
         daRef.child(email).setValue(user);
     }
+
     private void setOption(){
 
     }

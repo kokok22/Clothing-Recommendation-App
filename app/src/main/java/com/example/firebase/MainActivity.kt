@@ -30,6 +30,10 @@ import android.util.Log
 
 //테스트
 class MainActivity : BaseActivity(), LocationListener{
+    public var colorBBB:Int = 0
+    companion object{
+        public var colorAAA:Int = 0
+    }
 
     val PERMISSION_REQUEST_CODE = 2000
     val APP_ID = "01f01504beb8a874eb66df4f8859f80e"
