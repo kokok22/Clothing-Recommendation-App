@@ -82,13 +82,20 @@ class MainActivity : BaseActivity(), LocationListener{
 
         val RefList = ArrayList<StorageReference>()
 
+            RefList.add(storageRef.child("bk_14.jpg"))
+            RefList.add(storageRef.child("bk_2.jpg"))
+            RefList.add(storageRef.child("bk_6.jpg"))
+            RefList.add(storageRef.child("bk_7.jpg"))
+            RefList.add(storageRef.child("bk_10.jpg"))
 
+/*
             RefList.add(storageRef.child((224 + num).toString() + ".bmp"))
+            RefList.add(storageRef.child("bk_14.jpg"))
             RefList.add(storageRef.child((221 + num).toString() + ".bmp"))
             RefList.add(storageRef.child((250 + num).toString() + ".bmp"))
             RefList.add(storageRef.child((229 + num).toString() + ".bmp"))
             RefList.add(storageRef.child((230 + num).toString() + ".bmp"))
-
+*/
         num+=1
 //            RefList.add(storageRef.child((224 + num).toString() + ".bmp"))
 //            RefList.add(storageRef.child((221 + num).toString() + ".bmp"))
@@ -104,7 +111,7 @@ class MainActivity : BaseActivity(), LocationListener{
         RefList[0].getBytes(ONE_MEGABYTE).addOnSuccessListener { bytes ->
             // 이미지 다운로드 성공
             firstImage.setImageBitmap(BitmapFactory.decodeByteArray(bytes, 0, bytes.size))
-            like1.text = "  "+random.nextInt(3000).toString()
+            like1.text = "  "+random.nextInt(1000).toString()
         }.addOnFailureListener {
             // 다운로드 실패
             startToast("fail...")
@@ -113,7 +120,7 @@ class MainActivity : BaseActivity(), LocationListener{
         RefList[1].getBytes(ONE_MEGABYTE).addOnSuccessListener { bytes ->
             // 이미지 다운로드 성공
             secondImage.setImageBitmap(BitmapFactory.decodeByteArray(bytes, 0, bytes.size))
-            like2.text = "  "+random.nextInt(3000).toString()
+            like2.text = "  "+random.nextInt(1000).toString()
         }.addOnFailureListener {
             // 다운로드 실패
             startToast("fail...")
@@ -122,7 +129,7 @@ class MainActivity : BaseActivity(), LocationListener{
         RefList[2].getBytes(ONE_MEGABYTE).addOnSuccessListener { bytes ->
             // 이미지 다운로드 성공
             thirdImage.setImageBitmap(BitmapFactory.decodeByteArray(bytes, 0, bytes.size))
-            like3.text = "  "+random.nextInt(3000).toString()
+            like3.text = "  "+random.nextInt(1000).toString()
         }.addOnFailureListener {
             // 다운로드 실패
             startToast("fail...")
@@ -131,7 +138,7 @@ class MainActivity : BaseActivity(), LocationListener{
         RefList[3].getBytes(ONE_MEGABYTE).addOnSuccessListener { bytes ->
             // 이미지 다운로드 성공
             fourthImage.setImageBitmap(BitmapFactory.decodeByteArray(bytes, 0, bytes.size))
-            like4.text = "  "+random.nextInt(3000).toString()
+            like4.text = "  "+random.nextInt(1000).toString()
         }.addOnFailureListener {
             // 다운로드 실패
             startToast("fail...")
@@ -140,7 +147,7 @@ class MainActivity : BaseActivity(), LocationListener{
         RefList[4].getBytes(ONE_MEGABYTE).addOnSuccessListener { bytes ->
             // 이미지 다운로드 성공
             fifthImage.setImageBitmap(BitmapFactory.decodeByteArray(bytes, 0, bytes.size))
-            like5.text = "  "+random.nextInt(3000).toString()
+            like5.text = "  "+random.nextInt(1000).toString()
             if(num==0) {
                 startToast("추천 스타일 입니다.")
             }

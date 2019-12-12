@@ -20,6 +20,10 @@ android {
         }
     }
     sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/main/assets/'] } }
+
+    aaptOptions{
+        noCompress "tflite"
+    }
 }
 apply plugin: 'com.android.application'
 
@@ -46,6 +50,8 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     implementation "com.github.bumptech.glide:glide:4.9.0"
+
+    implementation "org.tensorflow:tensorflow-lite:+"
 }
 
 apply plugin: 'com.google.gms.google-services'
