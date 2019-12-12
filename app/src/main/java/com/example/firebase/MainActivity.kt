@@ -31,6 +31,7 @@ import android.util.Log
 //테스트
 class MainActivity : BaseActivity(), LocationListener{
     public var colorBBB:Int = 0
+    public var colorCCC:Int= 0
     companion object{
         public var colorAAA:Int = 0
     }
@@ -81,13 +82,21 @@ class MainActivity : BaseActivity(), LocationListener{
 
         val RefList = ArrayList<StorageReference>()
 
-        RefList.add(storageRef.child((224+num).toString() + ".bmp"))
-        RefList.add(storageRef.child((221+num).toString() + ".bmp"))
-        RefList.add(storageRef.child((250+num).toString() + ".bmp"))
-        RefList.add(storageRef.child((229+num).toString() + ".bmp"))
-        RefList.add(storageRef.child((230+num).toString() + ".bmp"))
 
-        num += 1
+            RefList.add(storageRef.child((224 + num).toString() + ".bmp"))
+            RefList.add(storageRef.child((221 + num).toString() + ".bmp"))
+            RefList.add(storageRef.child((250 + num).toString() + ".bmp"))
+            RefList.add(storageRef.child((229 + num).toString() + ".bmp"))
+            RefList.add(storageRef.child((230 + num).toString() + ".bmp"))
+
+//            RefList.add(storageRef.child((224 + num).toString() + ".bmp"))
+//            RefList.add(storageRef.child((221 + num).toString() + ".bmp"))
+//            RefList.add(storageRef.child((250 + num).toString() + ".bmp"))
+//            RefList.add(storageRef.child((229 + num).toString() + ".bmp"))
+//            RefList.add(storageRef.child((230 + num).toString() + ".bmp"))
+        //80 16380 15395 14079 10288 10474 13804 10817
+        //15912 11208 10139 11625 13224 13907
+
 
         val ONE_MEGABYTE = (1024 * 1024).toLong()
 

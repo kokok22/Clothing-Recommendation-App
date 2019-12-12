@@ -176,14 +176,6 @@
                 android:textColor="@android:color/black" />
 
             <RadioButton
-                android:id="@+id/blue"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Blue"
-                android:textColor="@android:color/holo_blue_bright" />
-
-            <RadioButton
                 android:id="@+id/brown"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -198,6 +190,14 @@
                 android:layout_weight="1"
                 android:text="Gray"
                 android:textColor="#696969" />
+
+            <RadioButton
+                android:id="@+id/pink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Pink"
+                android:textColor="#FF69B4" />
 
         </RadioGroup>
     </LinearLayout>
@@ -214,12 +214,12 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/pink"
+                android:id="@+id/blue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Pink"
-                android:textColor="#FF69B4" />
+                android:text="Blue"
+                android:textColor="@android:color/holo_blue_bright" />
 
             <RadioButton
                 android:id="@+id/green"

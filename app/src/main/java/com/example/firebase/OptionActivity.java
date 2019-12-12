@@ -135,34 +135,34 @@ public class OptionActivity extends BaseActivity{
                             MainActivity ma=new MainActivity();
                             //ma.setColorBBB(1);
                             System.out.println(ma.getColorBBB());
-                        }else if(blue.isChecked()){
-                            MainActivity ma=new MainActivity();
-                            ma.setColorBBB(2);
-                        }else if(brown.isChecked()){
-                            MainActivity ma=new MainActivity();
-                            ma.setColorBBB(3);
-                        }else if(gray.isChecked()){
+                        }else if(pink.isChecked()){
                             MainActivity ma=new MainActivity();
                             ma.setColorBBB(4);
+                        }else if(brown.isChecked()){
+                            MainActivity ma=new MainActivity();
+                            ma.setColorBBB(2);
+                        }else if(gray.isChecked()){
+                            MainActivity ma=new MainActivity();
+                            ma.setColorBBB(3);
                         }
                     }
                 });
         cloth2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if(pink.isChecked()){
+                if(blue.isChecked()){
                     MainActivity ma=new MainActivity();
-                    ma.setColorBBB(5);
+                    ma.setColorCCC(5);
                     //System.out.println(ma.getColorBBB());
                 }else if(Green.isChecked()){
                     MainActivity ma=new MainActivity();
-                    ma.setColorBBB(6);
+                    ma.setColorCCC(6);
                 }else if(Maroon.isChecked()){
                     MainActivity ma=new MainActivity();
-                    ma.setColorBBB(7);
+                    ma.setColorCCC(7);
                 }else if(Mustard.isChecked()){
                     MainActivity ma=new MainActivity();
-                    ma.setColorBBB(8);
+                    ma.setColorCCC(8);
                 }
             }
         });
