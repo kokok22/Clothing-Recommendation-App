@@ -89,6 +89,7 @@ class MainActivity : BaseActivity(), LocationListener{
             RefList.add(storageRef.child((229 + num).toString() + ".bmp"))
             RefList.add(storageRef.child((230 + num).toString() + ".bmp"))
 
+        num+=1
 //            RefList.add(storageRef.child((224 + num).toString() + ".bmp"))
 //            RefList.add(storageRef.child((221 + num).toString() + ".bmp"))
 //            RefList.add(storageRef.child((250 + num).toString() + ".bmp"))
